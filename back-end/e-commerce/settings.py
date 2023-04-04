@@ -41,6 +41,11 @@ INSTALLED_APPS = [
     # --Custom Apps
     'user.apps.UserConfig',
     'store.apps.StoreConfig'
+    
+    # -- Packages
+    'versatileimagefield',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
