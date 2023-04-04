@@ -43,34 +43,11 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    tc3_contact_user = models.ForeignKey(
-        to='user.User',
-        verbose_name=_('TC3 Contact User'),
-        related_name='users',
-        on_delete=models.PROTECT,
-        null=True, blank=True
-    )
     username = None
     email = models.EmailField(_('email address'), unique=True)
     title = models.CharField(verbose_name=_("Title"), max_length=255, blank=True, null=True)
     company_name = models.CharField(verbose_name=_("Company Name"), max_length=255)
-
-    salesforce_user_id = models.CharField(verbose_name=_('Salesforce User ID'), null=True, blank=True, max_length=255, )
-    salesforce_user_name = models.CharField(verbose_name=_('Salesforce User Name'), max_length=255, blank=True,
-                                            null=True)
-    salesforce_contact_id = models.CharField(verbose_name=_('Salesforce Contact ID'), max_length=255, blank=True,
-                                             null=True)
-    salesforce_contact_name = models.CharField(verbose_name=_('Salesforce Contact Name'), max_length=255, blank=True,
-                                               null=True)
-    salesforce_account_id = models.CharField(verbose_name=_('Salesforce Account ID'), max_length=255, blank=True,
-                                             null=True)
-    salesforce_account_name = models.CharField(verbose_name=_('Salesforce Account Name'), max_length=255, blank=True,
-                                               null=True)
-
-    allow_to_request_quote = models.BooleanField(verbose_name=_("Allow to Request Quote"), default=False)
     phone = models.CharField(verbose_name=_("Phone Number"), max_length=30)
-    is_subscribed = models.BooleanField(verbose_name=_("Subscribe to emails"), default=False)
-    suspend_pro_user_status = models.BooleanField(verbose_name=_('Suspend Pro User Status'), default=False)
     description = RichTextUploadingField(verbose_name=_("Description"), null=True, blank=True)
     avatar = VersatileImageField(
         verbose_name=_("Avatar"),
