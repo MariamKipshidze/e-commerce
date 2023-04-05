@@ -115,3 +115,6 @@ files/
 # **/migrations/**
 # !**/migrations
 # !**/migrations/__init__.py
+
+# ignore local setting file
+/e_commerce/settings/local.py
