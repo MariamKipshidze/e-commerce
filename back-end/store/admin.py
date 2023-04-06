@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from store.models import Product
+from store.models import ProductCollection
+from store.models import Category
