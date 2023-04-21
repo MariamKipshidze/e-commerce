@@ -10,6 +10,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['title', 'price', 'category']
     search_fields = ['name']
     list_filter = ['category']
+    prepopulated_fields = {
+        'slug': ['title']
+    }
 
 
 @admin.register(ProductCollection)
@@ -17,8 +20,14 @@ class ProductCollectionAdmin(admin.ModelAdmin):
     list_display = ['title']
     search_fields = ['name']
     list_filter = ['category']
+    prepopulated_fields = {
+        'slug': ['title']
+    }
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'is_active']
+    prepopulated_fields = {
+        'slug': ['title']
+    }
