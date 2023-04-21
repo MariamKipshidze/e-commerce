@@ -25,6 +25,7 @@ class Product(models.Model):
         blank=True,
     )
     title = models.CharField(verbose_name=_('Title'), max_length=255)
+    slug = models.SlugField(verbose_name=_('Slug'), null=True)
     price = models.DecimalField(verbose_name=_("Product Cost"), max_digits=7, decimal_places=2, default=0)
     description = RichTextUploadingField(verbose_name=_("Description"), null=True, blank=True)
 
@@ -34,6 +35,11 @@ class Product(models.Model):
     class Meta:
         verbose_name = _('Product')
         verbose_name_plural = _('Products')
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            unique_slugify(instance=self, value=self.title)
+        super(Product, self).save(*args, **kwargs)
 
 
 class Category(models.Model):
