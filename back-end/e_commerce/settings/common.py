@@ -140,41 +140,6 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = 'media/'
 
-CKEDITOR_UPLOAD_PATH = 'uploads/ck-editor/'
-CKEDITOR_BASEPATH = "/static_back/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = MEDIA_ROOT / 'uploads'
 
 AUTH_USER_MODEL = 'user.User'
-
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'aYourCustomToolbarConfig',
-        'tabSpaces': 4,
-        'allowedContent': {
-            'script': True,
-            'div': True,
-            '$1': {
-                'attributes': True,
-                'styles': True,
-                'classes': True
-            }
-        },
-        'extraPlugins': ','.join([
-            # the upload image feature
-            'uploadimage',
-            # extra plugins
-            'div',
-            'autolink',
-            'autoembed',
-            'embedsemantic',
-            'autogrow',
-            'devtools',
-            'pastecode',
-            'widget',
-            'lineutils',
-            'clipboard',
-            'dialog',
-            'dialogui',
-            'elementspath'
-        ]),
-    }
-}
