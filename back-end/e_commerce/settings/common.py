@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'versatileimagefield',
     'ckeditor',
     'ckeditor_uploader',
+    'colorfield',
 ]
 
 MIDDLEWARE = [
