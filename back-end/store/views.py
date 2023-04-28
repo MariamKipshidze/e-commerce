@@ -12,3 +12,4 @@ class ProductListingViewSet(mixins.ListModelMixin, GenericViewSet):
     pagination_class = StandardResultsSetPagination
     serializer_class = ProductListingSerializer
     filter_backends = [rest_framework.DjangoFilterBackend]
+    filterset_fields = ['title', 'description']
