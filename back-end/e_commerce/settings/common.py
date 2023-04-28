@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     
     # -- Packages
+    'rest_framework',
     'versatileimagefield',
     'ckeditor',
     'ckeditor_uploader',
     'colorfield',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +145,9 @@ MEDIA_URL = 'media/'
 CKEDITOR_UPLOAD_PATH = MEDIA_ROOT / 'uploads'
 
 AUTH_USER_MODEL = 'user.User'
+
+# Rest Framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
