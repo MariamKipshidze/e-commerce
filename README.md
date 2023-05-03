@@ -1,4 +1,4 @@
 # E-commerce
 
 #### Requirements For using Trigram Similarity:
-1. pg_trgm extention for postgresql
+1. pg_trgm extention for postgresql - ```CREATE EXTENSION pg_trgm;```
