@@ -1,3 +1,4 @@
+from django.contrib.postgres.search import TrigramSimilarity
 from django_filters import rest_framework as filters
 
 from store.models import Product
@@ -12,4 +13,6 @@ class ProductFilterSet(filters.FilterSet):
 
     @staticmethod
     def filter_title(queryset, _title, value):
-        return queryset.filter(title__icontains=value)
+        return queryset.annotate(
+            similarity=TrigramSimilarity("title", value)
+        ).filter(similarity__gt=0.3).order_by("-similarity")
